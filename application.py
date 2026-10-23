@@ -7,7 +7,7 @@ Pages come next.
 import streamlit as st
 
 from authorization import require_login, sign_out_button
-from db import run_sql
+from database import run_sql
 
 st.set_page_config(page_title="Sarin Finances", page_icon="💵", layout="wide")
 
