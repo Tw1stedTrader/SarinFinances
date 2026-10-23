@@ -2,14 +2,14 @@
 
 Every page calls require_login() first. It uses Streamlit's built-in
 Google sign-in and only lets through the email addresses listed in
-secrets under [auth] allowed_emails. Nothing else renders until then.
+secrets under ALLOWED_EMAILS. Nothing else renders until then.
 """
 
 import streamlit as st
 
 
 def _allowed_emails() -> set[str]:
-    raw = st.secrets.get("auth", {}).get("allowed_emails", [])
+    raw = st.secrets.get("ALLOWED_EMAILS", [])
     if isinstance(raw, str):
         raw = [raw]
     return {e.strip().lower() for e in raw if e and e.strip()}
