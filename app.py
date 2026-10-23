@@ -1,14 +1,18 @@
 """Sarin Finances — app shell.
 
-Skeleton only: confirms the Streamlit → Cloudflare D1 connection works.
+Sign-in gate first, then the Cloudflare D1 connection check.
 Pages come next.
 """
 
 import streamlit as st
 
+from auth import require_login, sign_out_button
 from db import run_sql
 
 st.set_page_config(page_title="Sarin Finances", page_icon="💵", layout="wide")
+
+require_login()
+sign_out_button()
 
 st.title("Sarin Finances")
 
